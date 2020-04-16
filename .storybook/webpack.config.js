@@ -1,4 +1,6 @@
 const path = require('path');
+const globImporter = require('node-sass-glob-importer');
+const _StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = async ({ config }) => {
   // Below is for if Emulsify Gatsby style guide is being used
@@ -23,6 +25,39 @@ module.exports = async ({ config }) => {
 
   // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
   config.resolve.mainFields = ['browser', 'module', 'main'];
+
+  // SCSS
+  config.module.rules.push({
+    test: /\.s[ac]ss$/i,
+    use: [
+      'style-loader',
+      {
+        loader: 'css-loader',
+        options: {
+          sourceMap: true,
+        },
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true,
+          sassOptions: {
+            importer: globImporter(),
+          },
+        },
+      },
+    ],
+  });
+
+  config.plugins.push(
+    new _StyleLintPlugin({
+      configFile: path.resolve(__dirname, '../', '.stylelintrc'),
+      context: path.resolve(__dirname, '../', 'src/components'),
+      files: '**/*.scss',
+      failOnError: false,
+      quiet: false,
+    }),
+  );
 
   // JS
   config.module.rules.push({
