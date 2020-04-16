@@ -2,9 +2,9 @@
 
 Emulsify is an open-source tool for creating design systems with reusable components and clear guidelines for teams. Emulsify helps organizations scale their design while reducing cost, streamlining workflows, and improving accessibility.
 
-# Emulsify Gatsby Starter
+# Western University School of Law Gatsby Site
 
-### Storybook development + Gatsby Starter + Default Components
+### Uses Emulsify Gatsby Starter and Storybook and Shared SCSS files
 
 **Emulsify Gatsby Starter** provides a [Storybook](https://storybook.js.org/) component library, a baseline set of React components and a default Gatsby starter using those components. It can help quickly kickstart a Gatsby project using component-driven development best practices!
 
