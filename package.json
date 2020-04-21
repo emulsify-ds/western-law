@@ -18,7 +18,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "western-up-scss": "^0.0.30",
+    "western-up-react": "~0.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -68,5 +70,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  },
+  "workspaces": [
+    "western-up-react"
+  ]
 }
