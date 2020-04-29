@@ -3,9 +3,18 @@ const globImporter = require('node-sass-glob-importer');
 const _StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = async ({ config }) => {
+  config.watchOptions = {
+    ignored: [
+      /node_modules\/(?!(western-up-scss|western-up-react)\/)/,
+      /\(?!(western-up-scss|western-up-react)([\\]+|\/)node_modules/,
+    ],
+  };
+
   // Below is for if Emulsify Gatsby style guide is being used
   // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
-  config.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/];
+  config.module.rules[0].exclude = [
+    /node_modules\/(?!(gatsby|western-up-react)\/)/,
+  ];
 
   // use installed babel-loader which is v8.0-beta (which is meant to work with @babel/core@7)
   config.module.rules[0].use[0].loader = require.resolve('babel-loader');
@@ -63,6 +72,7 @@ module.exports = async ({ config }) => {
   config.module.rules.push({
     test: /\.js$/,
     exclude: /node_modules/,
+    include: /node_modules\/western-/,
     loader: 'eslint-loader',
     options: {
       cache: true,
