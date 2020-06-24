@@ -9,11 +9,17 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import SiteHeader from "western-up-react/03-organisms/site/SiteHeader/SiteHeader.component.js";
+import SiteFooter from "western-up-react/03-organisms/site/SiteFooter/SiteFooter.component.js";
+
+import MenuData from '../data/menu.data.json';
+import FooterData from '../data/footer.data.json';
+import Hero from "western-up-react/02-molecules/Hero/Hero.component.js";
+
 import "./styles.scss";
 import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, BreadcrumbsData, heroImage, heroTitle }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -26,7 +32,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <SiteHeader breadcrumbs={BreadcrumbsData} menu={MenuData} />
+      {heroImage && 
+        <Hero image={heroImage} heading={heroTitle} />
+      }
       <div
         style={{
           margin: `0 auto`,
@@ -35,12 +44,8 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
+      <SiteFooter items={FooterData} />
     </>
   )
 }

@@ -34,6 +34,12 @@ module.exports = {
       options:{
         importer: globImporter()
       }
+    },
+    {
+      resolve: `gatsby-plugin-compile-es6-packages`,
+      options: {
+        modules: [`western-up-react`]
+      }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

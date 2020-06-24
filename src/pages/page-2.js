@@ -4,8 +4,10 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import Breadcrumbs from '../data/breadcrumbs.data.json';
+
 const SecondPage = () => (
-  <Layout>
+  <Layout BreadcrumbsData={Breadcrumbs}>
     <SEO title="Page two" />
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2</p>
