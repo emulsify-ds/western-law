@@ -2,15 +2,28 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+
+import Heading from "western-up-react/01-atoms/text/Heading.component";
+import TextWithImage from "western-up-react/02-molecules/TextWithImage/TextWithImage.component";
+import Grid from "western-up-react/03-organisms/grid/Grid.component.js";
+import NewsCard from "western-up-react/02-molecules/cards/NewsCard/NewsCard.component";
+import Hr from "western-up-react/01-atoms/hr/Hr.component";
+import Cta from 'western-up-react/02-molecules/cta/Cta.component';
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "hero.jpeg" }) {
+      heroPlaceholderImage: file(relativePath: { eq: "hero.jpeg" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      contentPlaceholderImage: file(relativePath: { eq: "sitting.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 550) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -18,15 +31,62 @@ const IndexPage = () => {
     }
   `)
   return (
-    <Layout heroImage={data.placeholderImage.childImageSharp.fluid} heroTitle="Western Law">
+    <Layout heroImage={data.heroPlaceholderImage.childImageSharp.fluid} heroTitle="#1 Fake Law School">
       <SEO title="Home" />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image ImageData={data} />
-      </div>
-      <Link className="button" to="/page-2/">Go to page 2</Link>
+      <Heading level="2">One of the Nation's Great Universities</Heading>
+      <TextWithImage
+        content="At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
+        image={data.contentPlaceholderImage.childImageSharp.fluid}
+      />
+      <Grid gridLabel="Upcoming Events" gridType="card">
+        <NewsCard
+          additionalClasses={['grid__item']}
+          outputImage={true}
+          image={{
+            alt: 'People',
+            src: 'https://picsum.photos/id/987/480/300',
+          }}
+          heading="Meet and Greet with the Chancellor"
+          subheading="Mark Namerson Visits the Students"
+          linkText="RSVP today"
+          linkUrl="#"
+          body="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec rutrum congue leo eget malesuada. Proin eget tortor risus. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat."
+          tag="People"
+          date="2119-01-09T12:00:00"
+        />
+        <NewsCard
+          additionalClasses={['grid__item']}
+          outputImage={true}
+          image={{
+            alt: 'Nature',
+            src: 'https://picsum.photos/id/678/480/300',
+          }}
+          heading="Hike the Hills and Valleys of PA"
+          subheading="Visiting Our National Parks"
+          body="Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec rutrum congue leo eget malesuada. Proin eget tortor risus. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo."
+          tag="Nature"
+          date="2119-04-11T12:00:00"
+        />
+        <NewsCard
+          additionalClasses={['grid__item']}
+          outputImage={true}
+          image={{
+            alt: 'Animals',
+            src: 'https://picsum.photos/id/654/480/300',
+          }}
+          heading="Going Ape for the Environmental Job Fair"
+          subheading="Pittsburgh Zoo Hosts Environmental Job Fair in August"
+          body="Tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec rutrum congue leo eget malesuada. Proin eget tortor risus. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat.. Nulla quis lorem ut libero malesuada feugiat."
+          tag="Animals"
+          date="2119-12-09T12:00:00"
+        />
+      </Grid>
+      <Hr />
+      <Cta
+        modifiers={['home']}
+        heading="World Class Library System"
+        buttonText="Visit in Virtual Reality"
+      />
     </Layout>
   );
 }

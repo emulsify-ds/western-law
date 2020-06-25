@@ -17,7 +17,6 @@ import FooterData from '../data/footer.data.json';
 import Hero from "western-up-react/02-molecules/Hero/Hero.component.js";
 
 import "./styles.scss";
-import "./layout.css"
 
 const Layout = ({ children, BreadcrumbsData, heroImage, heroTitle }) => {
   const data = useStaticQuery(graphql`
@@ -36,13 +35,7 @@ const Layout = ({ children, BreadcrumbsData, heroImage, heroTitle }) => {
       {heroImage && 
         <Hero image={heroImage} heading={heroTitle} />
       }
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <div className="main">
         <main>{children}</main>
       </div>
       <SiteFooter items={FooterData} />

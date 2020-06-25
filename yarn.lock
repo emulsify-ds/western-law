@@ -17282,10 +17282,10 @@ western-up-react@^1.2.0:
     cross-env "5.0.5"
     eslint-config-prettier "^6.10.0"
 
-western-up-scss@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/western-up-scss/-/western-up-scss-1.2.0.tgz#38b0c109f089d2e6e548473b3f664d8cc0e486ac"
-  integrity sha512-CtE0PlwAGG7AxmvEglo7+fpkmaZtTeis/CO7nhSjoFd+6wbJv3ivov/+I+tC3rky/w+2MgMinNiwLO5mWScRNw==
+western-up-scss@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/western-up-scss/-/western-up-scss-1.5.0.tgz#f94102f6a7152f05f7105da39696c7ba0a597f3b"
+  integrity sha512-voYVokYv5T7kEADSH8QRkSMYvoOkDHr9DzzBCVkNwNa9aaTCA+IydYgs16hnKbbgxzSR+0t1b8X3Fm+kK3yVuw==
   dependencies:
     breakpoint-sass "^2.7.1"
     cross-env "5.0.5"
