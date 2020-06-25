@@ -18,7 +18,7 @@ import Hero from "western-up-react/02-molecules/Hero/Hero.component.js";
 
 import "./styles.scss";
 
-const Layout = ({ children, BreadcrumbsData, heroImage, heroTitle }) => {
+const GatsbyLayout = ({ children, BreadcrumbsData, heroImage, heroTitle }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -43,8 +43,8 @@ const Layout = ({ children, BreadcrumbsData, heroImage, heroTitle }) => {
   )
 }
 
-Layout.propTypes = {
+GatsbyLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default GatsbyLayout

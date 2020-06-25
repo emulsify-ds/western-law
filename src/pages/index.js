@@ -1,7 +1,7 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import GatsbyLayout from "../components/layout"
 import SEO from "../components/seo"
 
 import Heading from "western-up-react/01-atoms/text/Heading.component";
@@ -31,7 +31,7 @@ const IndexPage = () => {
     }
   `)
   return (
-    <Layout heroImage={data.heroPlaceholderImage.childImageSharp.fluid} heroTitle="#1 Fake Law School">
+    <GatsbyLayout heroImage={data.heroPlaceholderImage.childImageSharp.fluid} heroTitle="#1 Fake Law School">
       <SEO title="Home" />
       <Heading level="2">One of the Nation's Great Universities</Heading>
       <TextWithImage
@@ -87,7 +87,7 @@ const IndexPage = () => {
         heading="World Class Library System"
         buttonText="Visit in Virtual Reality"
       />
-    </Layout>
+    </GatsbyLayout>
   );
 }
 
