@@ -9,8 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import SiteHeader from "western-up-react/03-organisms/site/SiteHeader/SiteHeader.component.js";
-import SiteFooter from "western-up-react/03-organisms/site/SiteFooter/SiteFooter.component.js";
+import Layout from "western-up-react/04-templates/Layout/Layout.component.js";
 
 import MenuData from '../data/menu.data.json';
 import FooterData from '../data/footer.data.json';
@@ -18,7 +17,7 @@ import Hero from "western-up-react/02-molecules/Hero/Hero.component.js";
 
 import "./styles.scss";
 
-const GatsbyLayout = ({ children, BreadcrumbsData, heroImage, heroTitle }) => {
+const GatsbyLayout = ({ children, BreadcrumbsData, heroImage, heroTitle, sidebarTrue, sidebarContents, pageTitle }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -30,16 +29,19 @@ const GatsbyLayout = ({ children, BreadcrumbsData, heroImage, heroTitle }) => {
   `)
 
   return (
-    <>
-      <SiteHeader breadcrumbs={BreadcrumbsData} menu={MenuData} />
-      {heroImage && 
-        <Hero image={heroImage} heading={heroTitle} />
-      }
-      <div className="main">
-        <main>{children}</main>
-      </div>
-      <SiteFooter items={FooterData} />
-    </>
+      <Layout
+        breadcrumbs={BreadcrumbsData}
+        menu={MenuData}
+        footerItems={FooterData}
+        hasSidebar={sidebarTrue}
+        sidebar={sidebarContents}
+        hero={heroImage && 
+          <Hero image={heroImage} heading={heroTitle} />
+        }
+        title={pageTitle}
+      >
+        {children}
+      </Layout>
   )
 }
 
