@@ -38,7 +38,7 @@ const IndexPage = () => {
         content="At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat."
         image={data.contentPlaceholderImage.childImageSharp.fluid}
       />
-      <Grid gridLabel="Upcoming Events" gridType="card">
+      <Grid gridLabel="Latest Articles" gridType="card">
         <NewsCard
           additionalClasses={['grid__item']}
           outputImage={true}
@@ -46,10 +46,10 @@ const IndexPage = () => {
             alt: 'People',
             src: 'https://picsum.photos/id/987/480/300',
           }}
-          heading="Meet and Greet with the Chancellor"
-          subheading="Mark Namerson Visits the Students"
-          linkText="RSVP today"
-          linkUrl="#"
+          heading="Assessment record repeat whiteboard, define reaction Moodle."
+          subheading="Knowles Cognitive Information Processing reaction label draft training"
+          linkText="Read more"
+          linkUrl="/articles/assessment-record/"
           body="Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec rutrum congue leo eget malesuada. Proin eget tortor risus. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat."
           tag="People"
           date="2119-01-09T12:00:00"
